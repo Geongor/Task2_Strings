@@ -3,15 +3,15 @@ import java.util.regex.Pattern;
 
 public class WordsRemover {
 
-    public void RemoveWords() {
+    public String RemoveWords(String text) {
 
         String regexp = "\\s*\\b(?ui:[йцкнгшщзхфвпрлджчсмтб])[а-яА-Я]{4}\\b";
-        String test = "слова В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова.";
+        StringBuilder sb = new StringBuilder();
+        sb.append(text);
         Pattern pattern = Pattern.compile(regexp);
-        Matcher matcher = pattern.matcher(test);
+        Matcher matcher = pattern.matcher(sb);
 
-        String test2 = matcher.replaceAll("");
-        System.out.println(test2);
+        return matcher.replaceAll("");
     }
 
 }
