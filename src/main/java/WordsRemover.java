@@ -12,7 +12,8 @@ public class WordsRemover {
 
     public String RemoveWords(int wordLength) {
 
-        String regexp = "\\s*\\b(?ui:[йцкнгшщзхфвпрлджчсмтб])[а-яА-Я]{" + wordLength + "}\\b";
+        wordLength--;
+        String regexp = "\\s*\\p{Punct}*\\b(?ui:[йцкнгшщзхфвпрлджчсмтб])[а-яА-Я]{" + wordLength + "}\\b\\p{Punct}*";
         Pattern pattern = Pattern.compile(regexp);
         Matcher matcher = pattern.matcher(text);
 
