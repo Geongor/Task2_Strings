@@ -2,16 +2,22 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class WordsRemover {
+    private StringBuilder text = new StringBuilder();
 
-    public String RemoveWords(String text) {
+    public WordsRemover(String text) {
+        this.text.append(text);
+    }
 
-        String regexp = "\\s*\\b(?ui:[йцкнгшщзхфвпрлджчсмтб])[а-яА-Я]{4}\\b";
-        StringBuilder sb = new StringBuilder();
-        sb.append(text);
+    public String RemoveWords(int wordLength) {
+
+        String regexp = "\\s*\\b(?ui:[йцкнгшщзхфвпрлджчсмтб])[а-яА-Я]{" + wordLength + "}\\b";
         Pattern pattern = Pattern.compile(regexp);
-        Matcher matcher = pattern.matcher(sb);
+        Matcher matcher = pattern.matcher(text);
 
         return matcher.replaceAll("");
     }
 
+    public StringBuilder getText() {
+        return text;
+    }
 }

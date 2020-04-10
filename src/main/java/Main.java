@@ -1,7 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
-        WordsRemover wordsRemover = new WordsRemover();
-        System.out.println(wordsRemover.RemoveWords("слова В некотором предложении текста слова заданной длины заменить указанной подстрокой, длина которой может не совпадать с длиной слова."));
+        WordsRemover wordsRemover = new WordsRemover(ReaderFromFile.ReadFromFile("E:\\Task2_Strings\\test.txt"));
+        System.out.println(wordsRemover.RemoveWords(4));
+        System.out.println(wordsRemover.getText());
     }
 }
